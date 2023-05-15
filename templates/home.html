@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Time</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <a href="{{url_for('index')}}"><h1>Distance Time</h1></a>
+    {%if Data%}
+    <p>The Distance between {{Data[3][1:-1]}} and {{Data[2][1:-1]}} is {{Data[0]}}.</p>
+    <p>The Time Duration to reach {{Data[3][1:-1]}} from {{Data[2][1:-1]}} is {{Data[1]}}.</p>
+    {%else%}
+    <form method="Post">
+        {{Form.hidden_tag()}}
+        {{Form.destination.label}}{{Form.destination()}}
+        {{Form.origin.label}}{{Form.origin()}}
+        {{Form.submit()}}
+    </form>
+    {%endif%}
+    
+</body>
+</html>
